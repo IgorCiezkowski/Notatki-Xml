@@ -6,14 +6,20 @@
         xmlns:local="clr-namespace:Notatki"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="300">
-    <StackPanel Margin="15">
-        <TextBlock FontSize="20px">Notatki</TextBlock>
-        <ListBox x:Name="ListBox">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.75*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="20px" FontWeight="Bold" TextAlignment="Center">Notatki</TextBlock>
+        <ListBox Grid.Row="1" x:Name="ListBox" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock></TextBlock>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-    </StackPanel>
+        <Button Grid.Row="2" Width="150" Height="40" FontSize="20" Click="AddNote" >Dodaj Notatkę</Button>
+    </Grid>
 </Window>

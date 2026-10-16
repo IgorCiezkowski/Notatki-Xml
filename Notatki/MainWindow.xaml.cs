@@ -20,9 +20,20 @@ namespace Notatki
     /// </summary>
     public partial class MainWindow : Window
     {
+        string[] lista = { };
         public MainWindow()
         {
             InitializeComponent();
+            ListBox.ItemsSource = lista;
+
+        }
+
+        private void AddNote(object sender, RoutedEventArgs e)
+        {
+            Window2 win2 = new Window2(lista);
+            win2.ShowDialog();
+            ListBox.ItemsSource = lista;
+
         }
     }
 }
