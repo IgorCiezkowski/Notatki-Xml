@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notatki"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="300">
+        Title="MainWindow" Height="500" Width="350">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.75*"/>
@@ -13,13 +13,11 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock FontSize="20px" FontWeight="Bold" TextAlignment="Center">Notatki</TextBlock>
-        <ListBox Grid.Row="1" x:Name="ListBox" >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock></TextBlock>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
+        <ListBox x:Name="listBox" Grid.Row="1" ItemsSource="{Binding}">
         </ListBox>
-        <Button Grid.Row="2" Width="150" Height="40" FontSize="20" Click="AddNote" >Dodaj Notatkę</Button>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Margin="10, 0" Width="140" Height="40" FontSize="20" Click="AddNote" >Dodaj Notatkę</Button>
+            <Button Margin="10, 0" Width="140" Height="40" FontSize="20" Click="SaveNotes" >Zapisz</Button>
+        </StackPanel>
     </Grid>
 </Window>

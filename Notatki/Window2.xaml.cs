@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,17 +20,19 @@ namespace Notatki
     /// </summary>
     public partial class Window2 : Window
     {
-        string[] lista1;
-        public Window2(string[] lista2)
+        ObservableCollection<string> lista1;
+        public Window2(ObservableCollection<string> lista2)
         {
-            lista1 = lista2;
-
             InitializeComponent();
+            lista1 = lista2;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            lista1.Append(note.Text);
+            if (!string.IsNullOrWhiteSpace(note.Text))
+            {
+                lista1.Add(note.Text);
+            }
             this.Close();
         }
     }
